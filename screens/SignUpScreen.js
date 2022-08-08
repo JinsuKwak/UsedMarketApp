@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -11,6 +11,20 @@ import { Color } from "../constants/COLOR";
 import { Ionicons } from "@expo/vector-icons";
 
 function SignUpScreen({ navigation }) {
+  const [userInputEmail, setUserInputEmail] = useState("");
+  const [userInputPassward, setUserInputPassward] = useState("");
+  const [userInputConfirmPassward, setUserInputConfirmPassward] = useState("");
+
+  function userInputEmailHandler(text) {
+    setUserInputEmail(text);
+  }
+  function userInputPasswardHandler(text) {
+    setUserInputPassward(text);
+  }
+  function userInputConfirmPasswardHandler(text) {
+    setUserInputConfirmPassward(text);
+  }
+
   const { width, height } = useWindowDimensions();
   const inputsContainerHeight = { height: (height * 40) / 100 };
 
@@ -19,90 +33,86 @@ function SignUpScreen({ navigation }) {
   }
 
   return (
-    <React.Fragment>
-      <View style={styles.container}></View>
-      <View style={styles.inputBackgroundContainer}>
-        <View style={[styles.inputsContainer, inputsContainerHeight]}>
-          <View style={styles.inputBox}>
-            <View style={styles.inputContainer}>
-              <TextInput
-                style={styles.input}
-                placeholder="Email"
-                autoCapitalize="none"
-                autoCorrect={false}
-                placeholderTextColor="#aaa"
-                selectionColor={Color.primary500}
-
-                // onChangeText={(text) => onChangeText(text)}
-                // value={value}
-                // style={{ borderBottomWidth: 2 }}
-              />
-            </View>
-            <View style={styles.inputIconContainer}>
-              <Ionicons
-                name="ios-mail-outline"
-                size={22}
-                color={Color.primary500}
-              />
-            </View>
+    <View style={styles.inputBackgroundContainer}>
+      <View style={[styles.inputsContainer, inputsContainerHeight]}>
+        <View style={styles.inputBox}>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="Email"
+              autoCapitalize="none"
+              autoCorrect={false}
+              placeholderTextColor="#aaa"
+              selectionColor={Color.primary500}
+              onChangeText={userInputEmailHandler}
+              value={userInputEmail}
+            />
           </View>
-          <View style={styles.inputBox}>
-            <View style={styles.inputContainer}>
-              <TextInput
-                style={styles.input}
-                placeholder="Password"
-                autoCapitalize="none"
-                autoCorrect={false}
-                placeholderTextColor="#aaa"
-                secureTextEntry={true}
-                selectionColor={Color.primary500}
-
-                // onChangeText={(text) => onChangeText(text)}
-                // value={value}
-                // style={{ borderBottomWidth: 2 }}
-              />
-            </View>
-            <View style={styles.inputIconContainer}>
-              <Ionicons
-                name="ios-lock-closed-outline"
-                size={22}
-                color={Color.primary500}
-              />
-            </View>
+          <View style={styles.inputIconContainer}>
+            <Ionicons
+              name="ios-mail-outline"
+              size={22}
+              color={Color.primary500}
+            />
           </View>
-          <View style={styles.inputBox}>
-            <View style={styles.inputContainer}>
-              <TextInput
-                style={styles.input}
-                placeholder="Confirm Password"
-                autoCapitalize="none"
-                autoCorrect={false}
-                placeholderTextColor="#aaa"
-                secureTextEntry={true}
-                selectionColor={Color.primary500}
-
-                // onChangeText={(text) => onChangeText(text)}
-                // value={value}
-                // style={{ borderBottomWidth: 2 }}
-              />
-            </View>
-            <View style={styles.inputIconContainer}>
-              <Ionicons
-                name="ios-lock-closed-outline"
-                size={22}
-                color={Color.primary500}
-              />
-            </View>
-          </View>
-
-          <ButtonSign
-            title={"Sign Up"}
-            color={Color.primary500}
-            onPress={signUpHandler}
-          />
         </View>
+        <View style={styles.inputBox}>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="Password"
+              autoCapitalize="none"
+              autoCorrect={false}
+              placeholderTextColor="#aaa"
+              secureTextEntry={true}
+              selectionColor={Color.primary500}
+              onChangeText={userInputPasswardHandler}
+              value={userInputPassward}
+            />
+          </View>
+          <View style={styles.inputIconContainer}>
+            <Ionicons
+              name="ios-lock-closed-outline"
+              size={22}
+              color={Color.primary500}
+            />
+          </View>
+        </View>
+
+        <View style={styles.inputBox}>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="Confirm Password"
+              autoCapitalize="none"
+              autoCorrect={false}
+              placeholderTextColor="#aaa"
+              secureTextEntry={true}
+              selectionColor={Color.primary500}
+              onChangeText={userInputConfirmPasswardHandler}
+              value={userInputConfirmPassward}
+
+              // onChangeText={(text) => onChangeText(text)}
+              // value={value}
+              // style={{ borderBottomWidth: 2 }}
+            />
+          </View>
+          <View style={styles.inputIconContainer}>
+            <Ionicons
+              name="ios-lock-closed-outline"
+              size={22}
+              color={Color.primary500}
+            />
+          </View>
+        </View>
+
+        <ButtonSign
+          title={"Sign Up"}
+          color={Color.primary500}
+          onPress={signUpHandler}
+        />
       </View>
-    </React.Fragment>
+    </View>
   );
 }
 
@@ -139,6 +149,8 @@ const styles = StyleSheet.create({
   },
 
   inputBackgroundContainer: {
+    flex: 1,
+    justifyContent: "flex-end",
     backgroundColor: Color.primary100,
   },
   inputsContainer: {
