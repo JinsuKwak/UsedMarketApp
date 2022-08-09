@@ -2,6 +2,7 @@ export const Color = {
   primary0: "#f3f0ff",
   primary100: "#e5dbff",
   primary300: "#9775fa",
+  RGBAprimary300: "rgba(151, 117, 250,0.3)",
   primary500: "#7048e8",
   primary700: "",
   primary900: "#1F0B5B",

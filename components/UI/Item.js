@@ -26,7 +26,6 @@ function Item({ item, fav }) {
   const itemTitleWidth = parseInt((width * 94) / 100 - 8 - 10 - 140);
   const navigation = useNavigation();
   function itemClickHandler() {
-    console.log(navigation);
     navigation.navigate("Item", { item: item, fav: fav });
   }
 

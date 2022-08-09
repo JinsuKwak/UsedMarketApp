@@ -10,7 +10,7 @@ function ExploreScreen({ route }) {
   // const navigation = useNavigation();
   // navigation.navigate("ExploreD");
 
-  //TODO get users fav list every time after rerender by useEffect()
+  //TODO get users fav list & chatlist every time after rerender by useEffect()
 
   function renderItem({ item }) {
     return <Item item={item} fav={route.params.favorites} />;

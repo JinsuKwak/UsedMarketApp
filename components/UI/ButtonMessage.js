@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Pressable, StyleSheet, View, Text } from "react-native";
+import {
+  Pressable,
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 import { Color } from "../../constants/COLOR";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -13,7 +19,7 @@ function ButtonMessage({ userB }) {
 
   return (
     <View style={styles.buttonContainer}>
-      <Pressable onPress={onPressHandler}>
+      <TouchableOpacity onPress={onPressHandler}>
         <View style={styles.iconContainer}>
           <Ionicons
             name="ios-chatbubble-sharp"
@@ -21,7 +27,7 @@ function ButtonMessage({ userB }) {
             color={Color.primary500}
           />
         </View>
-      </Pressable>
+      </TouchableOpacity>
     </View>
   );
 }

@@ -15,10 +15,11 @@ export async function getAddress(lat, lng, option) {
 
   const data = await response.json();
   const address = data.results[0].address_components;
+  console.log("getAddress API");
 
   switch (option) {
     case "fullAddress":
-      console.log(data.results[0].formatted_addresss);
+      // console.log(data.results[0].formatted_addresss);
       return data.results[0]?.formatted_address;
 
     case "postalCode":

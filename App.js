@@ -21,6 +21,7 @@ import MessagesScreen from "./screens/MessagesScreen.js";
 import PostScreen from "./screens/PostScreen.js";
 import ItemScreen from "./screens/ItemScreen.js";
 import ChatRoomScreen from "./screens/ChatRoomScreen.js";
+import Map from "./screens/Map.js";
 import React from "react";
 import { Color } from "./constants/COLOR";
 import SearchScreen from "./screens/SearchScreen.js";
@@ -462,6 +463,18 @@ export default function App() {
             options={({ route, navigation }) => {
               return {
                 title: `Chat with ${route.params.userB.userName}`,
+                headerShown: true,
+                headerBackButtonMenuEnabled: true,
+                headerBackVisible: true,
+              };
+            }}
+          />
+          <Stack.Screen
+            name="Map"
+            component={Map}
+            options={({ route, navigation }) => {
+              return {
+                title: route.params.address,
                 headerShown: true,
                 headerBackButtonMenuEnabled: true,
                 headerBackVisible: true,

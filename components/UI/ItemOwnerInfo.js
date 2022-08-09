@@ -22,7 +22,7 @@ function ItemOwnerInfo({ ownerBUG }) {
           <Text
             ellipsizeMode="tail"
             numberOfLines={1}
-            style={{ width: 120, height: 20, fontWeight: "500" }}
+            style={{ width: 120, height: 20, fontSize: 16, fontWeight: "500" }}
           >
             {userName}
           </Text>
@@ -46,6 +46,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    elevation: 1,
+    overflow: Platform.OS === "android" ? "hidden" : "visible",
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 1 },
+    shadowRadius: 1,
   },
 
   ownerInfoContainer: {
